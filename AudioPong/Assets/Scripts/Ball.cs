@@ -87,10 +87,11 @@ public class Ball : MonoBehaviour
         {
             updateScore(0);
         }
-        else
+		
+		if (col.gameObject.name == "WallTop" || col.gameObject.name == "WallBottom")
         {
             Vector2 pointOfContact = col.contacts[0].point;
-            _audioDirector.PlayBallHitSound(pointOfContact);
+            _audioDirector.PlayOuchSound(pointOfContact);
         }
     }
 

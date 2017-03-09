@@ -39,6 +39,7 @@ public class AudioDirector : MonoBehaviour {
       ballHitSource.Stop();
       gameEventSounds.Stop();
       backgroundMusicSource.Stop();
+		ouchSource.Stop();
    }
 
    public void PlayBackgroundMusic()
@@ -89,5 +90,17 @@ public class AudioDirector : MonoBehaviour {
       float newRange = (newMax - newMin);
       newValue = (((oldValue - oldMin) * newRange) / oldRange) + newMin;
       return newValue;
+   }
+	
+	public void PlayOuchSound(Vector2 pos)
+   {
+      float panValue = 0f;
+
+      panValue = remapRange(pos.x, farLeftBallPosition, farRightBallPosition, -1, 1);
+      ouchSource.panStereo = panValue;
+      ouchSource.clip = ouchSound;
+      ouchSource.Play();
+      //Debug.Log("PanValue: " + panValue);
+
    }
 }
