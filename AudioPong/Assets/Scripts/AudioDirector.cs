@@ -12,6 +12,9 @@ public class AudioDirector : MonoBehaviour {
    public AudioClip resetSound;
    public AudioSource gameEventSounds;
    public AudioSource backgroundMusicSource;
+	public AudioClip ouchSound;
+	public AudioSource ouchSource;
+
    
 
    public float farLeftBallPosition = -25f;
