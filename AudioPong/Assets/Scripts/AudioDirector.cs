@@ -61,8 +61,8 @@ public class AudioDirector : MonoBehaviour {
    public void AdjustBallMoveSound(Vector2 pos, float velo)
    {  
       ballMoveSource.panStereo = remapRange(pos.x, farLeftBallPosition, farRightBallPosition, -1, 1);
-      ballMoveSource.pitch = remapRange(pos.y, bottomBallPosition, topBallPosition, ballMovePitchLow, ballMovePitchHigh);
-      Mixer.SetFloat("BallFlange", (remapRange(velo, 0, 50, 0, 1)));
+		ballMoveSource.pitch = remapRange(velo, 0, 50, 0.75f, 1.5f);
+      //Mixer.SetFloat("BallFlange", (remapRange(velo, 0, 50, 0, 1)));
    }
    
    public void PlayBallHitSound(Vector2 pos)
